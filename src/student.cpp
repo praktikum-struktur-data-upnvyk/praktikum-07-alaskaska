@@ -68,7 +68,7 @@ using namespace std;
 // =============================================================================
 void preorder(const Node* root) {
     if (root != nullptr) {
-        cout << root->nilai << " ";
+        cout << root->data << " ";
         preorder(root->left);
         preorder(root->right);
     }
@@ -97,7 +97,7 @@ void preorder(const Node* root) {
 void inorder(const Node* root) {
    if (root != nullptr) {
         inorder(root->left);
-        cout << root->nilai << " ";
+        cout << root->data << " ";
         inorder(root->right);
     }
 }
@@ -127,7 +127,7 @@ void postorder(const Node* root) {
     if (root != nullptr) {
         postorder(root->left);
         postorder(root->right);
-        cout << root->nilai << " ";
+        cout << root->data << " ";
     }
 }
 
