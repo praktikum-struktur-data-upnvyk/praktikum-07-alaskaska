@@ -69,8 +69,8 @@ using namespace std;
 void preorder(const Node* root) {
     if (root != nullptr) {
         cout << root->nilai << " ";
-        preorder(root->left);
-        preorder(root->right);
+        preorder(root->kiri);
+        preorder(root->kanan);
     }
 
 }
@@ -97,9 +97,9 @@ void preorder(const Node* root) {
 // =============================================================================
 void inorder(const Node* root) {
     if (root != nullptr) {
-        inorder(root->left);
+        inorder(root->kiri);
         cout << root->nilai << " ";
-        inorder(root->right);
+        inorder(root->kanan);
     }
 
 }
@@ -127,8 +127,8 @@ void inorder(const Node* root) {
 // =============================================================================
 void postorder(const Node* root) {
     if (root != nullptr) {
-        postorder(root->left);
-        postorder(root->right);
+        postorder(root->kiri);
+        postorder(root->kanan);
         cout << root->nilai << " ";
     }
 
@@ -161,8 +161,8 @@ void clear(Node*& root) {
     if (root == nullptr)
     return;
 
-    clear(root->left);
-    clear(root->right);
+    clear(root->kiri);
+    clear(root->kanan);
 
     delete root;
     root = nullptr;
@@ -207,8 +207,8 @@ int jumlahDaun(const Node* root) {
     return 0;
 
     return 1
-    + jumlahDaun(root->left)
-    + jumlahDaun(root->right);
+    + jumlahDaun(root->kiri)
+    + jumlahDaun(root->kanan);
 }
 
 // =============================================================================
