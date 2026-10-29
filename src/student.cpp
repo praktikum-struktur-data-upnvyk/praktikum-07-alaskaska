@@ -69,10 +69,9 @@ using namespace std;
 void preorder(const Node* root) {
     if (root != nullptr) {
         cout << root->nilai << " ";
-        preorder(root->kiri);
-        preorder(root->kanan);
+        preorder(root->left);
+        preorder(root->right);
     }
-
 }
 
 // =============================================================================
@@ -96,12 +95,11 @@ void preorder(const Node* root) {
 //     inorder(NULL);     // tidak mencetak apa pun
 // =============================================================================
 void inorder(const Node* root) {
-    if (root != nullptr) {
-        inorder(root->kiri);
+   if (root != nullptr) {
+        inorder(root->left);
         cout << root->nilai << " ";
-        inorder(root->kanan);
+        inorder(root->right);
     }
-
 }
 
 // =============================================================================
@@ -127,11 +125,10 @@ void inorder(const Node* root) {
 // =============================================================================
 void postorder(const Node* root) {
     if (root != nullptr) {
-        postorder(root->kiri);
-        postorder(root->kanan);
+        postorder(root->left);
+        postorder(root->right);
         cout << root->nilai << " ";
     }
-
 }
 
 // =============================================================================
@@ -159,10 +156,10 @@ void postorder(const Node* root) {
 // =============================================================================
 void clear(Node*& root) {
     if (root == nullptr)
-    return;
+        return;
 
-    clear(root->kiri);
-    clear(root->kanan);
+    clear(root->left);
+    clear(root->right);
 
     delete root;
     root = nullptr;
@@ -204,11 +201,12 @@ void clear(Node*& root) {
 // =============================================================================
 int jumlahDaun(const Node* root) {
     if (root == nullptr)
-    return 0;
+        return 0;
 
-    return 1
-    + jumlahDaun(root->kiri)
-    + jumlahDaun(root->kanan);
+    if (root->left == nullptr && root->right == nullptr)
+        return 1;
+
+    return jumlahDaun(root->left) + jumlahDaun(root->right);
 }
 
 // =============================================================================
